@@ -1,0 +1,14 @@
+{
+  "name": "Variables, Data Types & Control Flows",
+  "description": "Blank Project",
+  "main": "Generic_Values.xaml",
+  "dependencies": {},
+  "excludedData": [
+    "Private:*",
+    "*password*"
+  ],
+  "toolVersion": "18.1.4.0",
+  "projectVersion": "1.0.6703.32682",
+  "packOptions": {},
+  "runtimeOptions": {}
+}
