@@ -5,6 +5,7 @@ Workflows cover below topics:
 2. Variables, Data Types & Control Flows
 3. Data Manipulation
 4. Recording
+5. Advanced UI Interaction
 
 ## Pre-Requisites
 

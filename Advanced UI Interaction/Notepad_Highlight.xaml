@@ -1,0 +1,193 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Notepad_Highlight" mva:VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="Notepad_Highlight_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Core.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Notepad_Highlight" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:Window" Name="notepadWnd" />
+    </Sequence.Variables>
+    <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start process" FileName="C:\Windows\System32\notepad.exe" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
+    <ui:WindowScope SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" ApplicationWindow="[notepadWnd]" DisplayName="Attach Window 'notepad.exe Untitled'" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="009d82f210ad1e11eaf4e0da641510bd" Selector="&lt;wnd app='notepad.exe' cls='Notepad' title='Untitled - Notepad' /&gt;">
+      <ui:WindowScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_1">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="ui:UiElement" Name="textRegion" />
+            </Sequence.Variables>
+            <ui:MaximizeWindow DisplayName="Maximize window" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" Window="[notepadWnd]" />
+            <ui:SetValue ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'editable text'" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget finibus felis. Vivamus laoreet eros at tortor vulputate vulputate. Fusce est lectus, blandit a nulla eget, dapibus sagittis augue. Curabitur ut purus hendrerit, luctus justo nec, fringilla urna. Maecenas et ante lacus. Pellentesque quam nisi, condimentum sit amet massa eget, vehicula aliquet libero. Vestibulum libero risus, facilisis in nunc eget, feugiat scelerisque eros. Maecenas eros orci, pretium eu mattis eget, varius ac purus.&quot; + Environment.Newline+&#xD;&#xA;&quot;Vivamus blandit velit et dictum maximus. Sed sollicitudin tristique velit, sed euismod magna suscipit sit amet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec dapibus velit eget arcu interdum laoreet. Integer vestibulum orci eu odio iaculis volutpat. Aliquam finibus nec odio sed lobortis. Praesent mollis lobortis lacus, ut tempor metus mollis eget. Aliquam a urna est. Donec ac quam eget elit tempus tempus. Sed lobortis ultricies commodo. Nulla vulputate, ex et tempus elementum, lectus enim fermentum nisl, at auctor nisl erat vel lacus. Sed lobortis mattis viverra. Pellentesque condimentum pretium ullamcorper. Nulla non interdum libero. Cras pretium consectetur consectetur.&quot; + Environment.Newline+&#xD;&#xA;&quot;Sed at faucibus risus. Nullam eu enim at nisi viverra tempor. Suspendisse potenti. Cras et elit mi. Praesent facilisis massa quis hendrerit posuere. Etiam sagittis porttitor tristique. Vivamus commodo ultrices pretium. Praesent vulputate efficitur ante, et faucibus erat lacinia ut. Suspendisse euismod enim ac leo ultrices semper. Aliquam in neque malesuada, facilisis tortor ac, rhoncus dolor. Sed nec sagittis massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla bibendum sem ut nunc lacinia porttitor. Fusce ultricies lacus in nulla aliquet malesuada. Proin ut malesuada nibh.&quot; + Environment.Newline+&#xD;&#xA;&quot;Nunc blandit diam ex, nec mattis velit rutrum non. Morbi malesuada vitae tortor eu tempus. In hac habitasse platea dictumst. Cras vitae lectus at lectus placerat interdum at non nulla. Quisque id magna sodales, tincidunt dolor nec, auctor turpis. Vestibulum a fringilla tellus. Vivamus non molestie turpis. Pellentesque bibendum erat in auctor eleifend. Ut malesuada, quam id porttitor molestie, lorem orci viverra est, eu porta diam justo in tortor. Aliquam at ex elit. Sed mauris neque, porta quis felis at, egestas sodales est. Proin sem nunc, condimentum at scelerisque ac, laoreet nec arcu. Mauris sit amet massa ullamcorper, tempus eros ut, porta eros.&quot; + Environment.Newline+&#xD;&#xA;&quot;Cras quis semper nisi. Suspendisse lobortis massa non orci sodales, sed condimentum massa porttitor. Pellentesque et dui nibh. In hac habitasse platea dictumst. Nullam finibus augue et rhoncus suscipit. Proin gravida nisl elit, vitae efficitur ipsum volutpat sed. Sed consectetur aliquet lacus, non blandit ipsum dapibus et.&quot;]">
+              <ui:SetValue.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="8740229e94f319aa8bf8d7c351bbec25" Selector="&lt;wnd cls='Edit' /&gt;&lt;ctrl role='editable text' /&gt;" WaitForReady="INTERACTIVE" />
+              </ui:SetValue.Target>
+            </ui:SetValue>
+            <ui:Highlight Color="255, 215, 0" DisplayName="Highlight 'editable text'" HighlightTime="1000" sap2010:WorkflowViewState.IdRef="Highlight_1">
+              <ui:Highlight.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="aff6400338815800c7a33a7adeb70b8e" Selector="&lt;wnd cls='Edit' /&gt;&lt;ctrl role='editable text' /&gt;" WaitForReady="INTERACTIVE" />
+              </ui:Highlight.Target>
+            </ui:Highlight>
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Double Click" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="5abeeee0ceacba1b0bbca44047df5aa3" Selector="&lt;wnd cls='Edit' /&gt;&lt;ctrl role='editable text' /&gt;" WaitForReady="INTERACTIVE" />
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Highlight Color="255, 215, 0" DisplayName="Highlight 'editable text'" HighlightTime="1000" sap2010:WorkflowViewState.IdRef="Highlight_2">
+              <ui:Highlight.Target>
+                <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="fa080842d2beee38e13668e0e77639fa" Selector="&lt;wnd cls='Edit' /&gt;&lt;ctrl role='editable text' /&gt;" WaitForReady="INTERACTIVE">
+                  <ui:Target.ClippingRegion>
+                    <ui:Region Rectangle="444, 145, 467, 39" />
+                  </ui:Target.ClippingRegion>
+                </ui:Target>
+              </ui:Highlight.Target>
+            </ui:Highlight>
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Double Click" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c349bca2426d06f0f7fd2514e10a2977" Selector="&lt;wnd cls='Edit' /&gt;&lt;ctrl role='editable text' /&gt;" WaitForReady="INTERACTIVE">
+                  <ui:Target.ClippingRegion>
+                    <ui:Region Rectangle="435, 150, 531, 43" />
+                  </ui:Target.ClippingRegion>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:WaitUiElementAppear DisplayName="Find Element 'editable text'" FoundElement="[textRegion]" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1" WaitActive="False" WaitVisible="False">
+              <ui:WaitUiElementAppear.Target>
+                <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="5f5b488c8d1ba79faecf09853d1b710f" Selector="&lt;wnd cls='Edit' /&gt;&lt;ctrl role='editable text' /&gt;" WaitForReady="INTERACTIVE">
+                  <ui:Target.ClippingRegion>
+                    <ui:Region Rectangle="8, 89, 149, 72" />
+                  </ui:Target.ClippingRegion>
+                </ui:Target>
+              </ui:WaitUiElementAppear.Target>
+            </ui:WaitUiElementAppear>
+            <ui:Highlight Color="255, 215, 0" HighlightTime="1000" sap2010:WorkflowViewState.IdRef="Highlight_3">
+              <ui:Highlight.Target>
+                <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Element="[textRegion]" WaitForReady="INTERACTIVE" />
+              </ui:Highlight.Target>
+            </ui:Highlight>
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Double Click" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Element="[textRegion]" WaitForReady="INTERACTIVE" />
+              </ui:Click.Target>
+            </ui:Click>
+          </Sequence>
+        </ActivityAction>
+      </ui:WindowScope.Body>
+    </ui:WindowScope>
+    <sads:DebugSymbol.Symbol>dzNDOlxVSVBhdGhXb3Jrc3BhY2VcV29ya2Zsb3dzXE5vdGVwYWRfSGlnaGxpZ2h0LnhhbWwbOwOiAQ4CAQE/BT/BAQIBH0AFoAEWAgECP2w/jQECASBAmQJA4wICAR5AZUBzAgEcRgudARYCAQNKDUqJAQIBGUsNTxsCARZQDVQcAgEUVQ1jGAIBEmQNbBwCARBtDX8YAgEOgAENiAEmAgEKiQENjQEcAgEHjgENnAEYAgEESnhKhgECARpLuwFL+RgCARdNoAFN3QECARhSoAFS3QECARVhoAFh3QECARNmhgFmwwECARF5hgF5wwECAQ+AAV2AAWsCAQyCAYYBggHDAQIBC4sBZ4sBdQIBCJoBZ5oBdQIBBQ==</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="StartProcess_1" sap:VirtualizedContainerService.HintSize="414,87" />
+      <sap2010:ViewStateData Id="MaximizeWindow_1" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="SetValue_1" sap:VirtualizedContainerService.HintSize="314,134" />
+      <sap2010:ViewStateData Id="Highlight_1" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Click_1" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Highlight_2" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Click_2" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="WaitUiElementAppear_1" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Highlight_3" sap:VirtualizedContainerService.HintSize="314,68" />
+      <sap2010:ViewStateData Id="Click_3" sap:VirtualizedContainerService.HintSize="314,68" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="336,1266">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WindowScope_1" sap:VirtualizedContainerService.HintSize="414,1412" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="436,1663">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Notepad_Highlight_1" sap:VirtualizedContainerService.HintSize="476,1743" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
