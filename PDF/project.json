@@ -1,0 +1,14 @@
+{
+  "name": "PDF",
+  "description": "Blank Project",
+  "main": "PDF_Read.xaml",
+  "dependencies": {},
+  "excludedData": [
+    "Private:*",
+    "*password*"
+  ],
+  "toolVersion": "18.1.4.0",
+  "projectVersion": "1.0.6703.32682",
+  "packOptions": {},
+  "runtimeOptions": {}
+}
