@@ -6,6 +6,8 @@ Workflows cover below topics:
 3. Data Manipulation
 4. Recording
 5. Advanced UI Interaction
+6. Selectors
+7. Excel & Data Tables
 
 ## Pre-Requisites
 
