@@ -8,6 +8,7 @@ Workflows cover below topics:
 5. Advanced UI Interaction
 6. Selectors
 7. Excel & Data Tables
+8. PDF
 
 ## Pre-Requisites
 
